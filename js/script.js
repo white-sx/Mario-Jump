@@ -6,8 +6,9 @@ const scoreDisplay = document.querySelector(".display");
 const best = document.querySelector(".Best");
 const reset = document.querySelector(".reset");
 const gamerOver = document.querySelector(".gameOver-Display");
-const audio = document.querySelector(".effect")
+const audio = document.querySelector(".effect");
 document.addEventListener("keydown", jump);
+document.addEventListener("click", jump);
 reset.addEventListener("click", restart);
 const audioBack = document.querySelector(".back");
 
@@ -23,35 +24,53 @@ function restart() {
 }
 
 const loop = setInterval(() => {
+  let screenPosition = 120;
+  let marioMarginL = "46px";
+  let marioMarginB = "46px";
+  let marioWidth = "46px";
+
   const pipePosition = pipe.offsetLeft;
   const marioPosition = +window
     .getComputedStyle(mario)
     .bottom.replace("px", "");
 
-  if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+  if (window.screen.width <= 425) {
+    screenPosition = 110;
+
+    marioMarginL = "2px";
+    marioMarginB = "16px";
+    marioWidth = "55px";
+  }
+
+  if (
+    pipePosition <= screenPosition &&
+    pipePosition > 0 &&
+    marioPosition < 80
+  ) {
     pipe.style.animation = "none";
     pipe.style.left = `${pipePosition}px`;
 
     mario.style.animation = "none";
     mario.style.bottom = `${marioPosition}px`;
     mario.src = "./assets/img/game-over.png";
-    mario.style.marginLeft = "46px";
-    mario.style.marginBottom = "32px";
-    mario.style.width = "75px";
+    mario.style.marginLeft = marioMarginL;
+    mario.style.marginBottom = marioMarginB;
+    mario.style.width = marioWidth;
 
-     localStorage.setItem("score", score);
+    localStorage.setItem("score", score);
     const localBestScore = localStorage.getItem("bestScore");
 
-    if(score > localBestScore){
-        localStorage.setItem("bestScore", score)
+    if (score > localBestScore) {
+      localStorage.setItem("bestScore", score);
     }
 
     best.style.color = "red";
-    best.innerHTML =  localStorage.getItem("bestScore");
+    best.innerHTML = localStorage.getItem("bestScore");
 
     gamerOver.style.display = "flex";
-    audio.src = "./assets/sound/y2meta.com - que isso meu filho calma (320 kbps).mp3"
-    audioBack.muted = true
+    audio.src =
+      "./assets/sound/y2meta.com - que isso meu filho calma (320 kbps).mp3";
+    audioBack.muted = true;
     clearInterval(loop);
   } else {
     score = score + 1;

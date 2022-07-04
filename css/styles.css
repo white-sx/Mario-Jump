@@ -27,6 +27,7 @@
   width: 150px;
   position: absolute;
   bottom: 0;
+  
 }
 
 .clouds {
@@ -56,14 +57,13 @@
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  
 }
 
 .gameOver-Display h1 {
   font-size: 3rem;
 }
 
-.reset{
+.reset {
   cursor: pointer;
 }
 
@@ -116,16 +116,32 @@
   }
 }
 
-
-@media (max-width: 425px){
-  .pipe {
-    width: 50px;
-    animation: pipe-animation 1.5s infinite linear;
+@media (max-width: 425px) {
+  body{
+    height: 94vh;
+    overflow: hidden;
+    
   }
   
+  
+  .pipe {
+    width: 50px;
+    animation: pipe-animation 1.2s infinite linear;
+  }
+
   .mario {
     width: 100px;
     position: absolute;
     bottom: 0;
+    margin: 0;
+  }
+
+  .game-board{
+  height: 100%;
+  }
+
+  .clouds{
+    top: 14%;
+    width: 300px;
   }
 }
