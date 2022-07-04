@@ -26,8 +26,8 @@ function restart() {
 const loop = setInterval(() => {
   let screenPosition = 120;
   let marioMarginL = "46px";
-  let marioMarginB = "46px";
-  let marioWidth = "46px";
+  let marioMarginB = "32px";
+  let marioWidth = "75px";
 
   const pipePosition = pipe.offsetLeft;
   const marioPosition = +window
@@ -37,9 +37,9 @@ const loop = setInterval(() => {
   if (window.screen.width <= 425) {
     screenPosition = 110;
 
-    marioMarginL = "2px";
-    marioMarginB = "16px";
-    marioWidth = "55px";
+    marioMarginL = "0px";
+    marioMarginB = "0px";
+    marioWidth = "45px";
   }
 
   if (
