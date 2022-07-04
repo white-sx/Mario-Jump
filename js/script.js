@@ -64,7 +64,7 @@ const loop = setInterval(() => {
       localStorage.setItem("bestScore", score);
     }
 
-    best.style.color = "red";
+    best.style.color = "#FB9927";
     best.innerHTML = localStorage.getItem("bestScore");
 
     gamerOver.style.display = "flex";

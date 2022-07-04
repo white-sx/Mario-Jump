@@ -6,10 +6,14 @@
   font-family: "mario-font";
 }
 
+body{
+  background-color: #751E00;
+}
+
 .game-board {
   width: 100%;
   height: 500px;
-  border-bottom: 15px solid rgb(35, 160, 35);
+  border-bottom: 15px solid #09A603;
   background: linear-gradient(#87ceeb, #e0f6ff);
   margin: 0 auto;
   position: relative;
